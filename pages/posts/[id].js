@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Post(props) {
-  console.info(props)
     return (
         <div>
             <h1>{props.posts.title}</h1>
@@ -12,8 +11,7 @@ function Post(props) {
 export default Post;
 
 export const getServerSideProps = async (context) => {
-    console.info("context",context)
-    const res = await fetch("http://localhost:3000/api/posts/"+context.params.id+"");
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/"+context.params.id+"");
      const data = await res.json();
     return {
       props :{
