@@ -27,7 +27,7 @@ export default function Home(props) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch("/api/posts",{
+  const res = await fetch("api/posts",{
     method: 'GET',
     headers: {
       'Authorization': 'Bearer api-token',
