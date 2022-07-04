@@ -11,7 +11,12 @@ function Post(props) {
 export default Post;
 
 export const getServerSideProps = async (context) => {
-    const res = await fetch("http://localhost:3000/api/posts/"+context.params.id+"");
+    const res = await fetch("http://localhost:3000/api/posts/"+context.params.id+"",{
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer api-token',
+      },
+     });
      const data = await res.json();
     return {
       props :{

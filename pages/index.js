@@ -26,8 +26,13 @@ export default function Home(props) {
   )
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/posts");
+export const getServerSideProps = async () => {
+  const res = await fetch("http://localhost:3000/api/posts",{
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer api-token',
+    },
+  });
    const data = await res.json();
   return {
     props :{
