@@ -14,7 +14,7 @@ export const getServerSideProps = async (context) => {
     const res = await fetch("/api/posts/"+context.params.id+"",{
       method: 'GET',
       headers: {
-        'Authorization': 'Bearer api-token',
+        "Content-Type": "application/json"
       },
      });
      const data = await res.json();

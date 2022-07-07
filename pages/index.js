@@ -30,7 +30,7 @@ export const getServerSideProps = async () => {
   const res = await fetch("/api/posts",{
     method: 'GET',
     headers: {
-      'Authorization': 'Bearer api-token',
+      "Content-Type": "application/json"
     },
   });
    const data = await res.json();
