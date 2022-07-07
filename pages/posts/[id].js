@@ -10,8 +10,17 @@ function Post(props) {
 
 export default Post;
 
-export const getServerSideProps = async (context) => {
-    const res = await fetch("/api/posts/"+context.params.id+"",{
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id:"1"} }
+    ],
+    fallback: true // false or 'blocking'
+  };
+}
+
+export const getStaticProps = async (context) => {
+    const res = await fetch("http://localhost:3000/api/posts/"+context.params.id+"",{
       method: 'GET',
       headers: {
         "Content-Type": "application/json"
