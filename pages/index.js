@@ -1,9 +1,12 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import { useEffect } from 'react';
 export default function Home(props) {
 
-
+  useEffect(()=>{
+     console.info("propsss :" ,props.posts)
+  },[])
   return (
     <div className={styles.container}>
       <Head>
